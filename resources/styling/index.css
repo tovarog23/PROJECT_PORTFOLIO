@@ -17,12 +17,17 @@ header{
     z-index: 1;
 }
 
-header h1{
+header h1 a{
     font-family: 'Monoton', cursive;
     font-size: 3rem;
     margin-left: 20px;
     background-color: rgba(0,0,0,0);
+    text-decoration: none;
 }
+header h1{
+    background-color: rgba(0, 0, 0, 0);
+}
+
 
 .header_title,
 nav{
@@ -52,13 +57,40 @@ header li a{
     100% { opacity: 0; }
 }
 
+@keyframes fadein{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+@keyframes slideInLeft{
+    0%{
+        transform: translateX(-20%);
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes opacityChange{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 #greetings{
     font-size: 6rem;
     width: auto;
     height: fit-content;
     font-family: 'Unbounded', cursive;
     font-weight: bold;
-    animation: fade 5s linear infinite;   
+    animation: fade 5s linear infinite;       
 }
 
 main{
@@ -82,6 +114,7 @@ main{
     height: 80vh;
 }
 
+
 #intro_container{
     display: flex;
     justify-content: center;
@@ -94,6 +127,8 @@ main{
     font-size: 3rem;
     margin: 10px 0px;
     font-family: 'Unbounded', cursive;
+    animation: slideInLeft 2s linear;
+    /* animation: opacityChange 0.1s linear; */
 }
 
 #intro{
@@ -105,6 +140,9 @@ main{
     text-align: justify;
     font-family: 'Quicksand', sans-serif;
     line-height: 2rem;
+    opacity: 1;
+    animation: fadein 1s linear;
+    
 }
 
 #text_intro{
